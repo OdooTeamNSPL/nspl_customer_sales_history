@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_sales_history,sale.order access for sales history,model_sale_order,nspl_customer_sales_history.group_customer_sales_history_user,1,0,0,0
