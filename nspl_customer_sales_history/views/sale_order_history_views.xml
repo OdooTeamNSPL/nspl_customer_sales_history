@@ -1,0 +1,32 @@
+<odoo>
+    <!-- Action -->
+    <record id="action_customer_sales_history" model="ir.actions.act_window">
+        <field name="name">Customer Sales History</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('partner_id','=',active_id)]</field>
+        <field name="context">{'default_partner_id': active_id, 'search_default_group_by_date_order':1}</field>
+    </record>
+
+
+    <!-- Inherit Sale Order form view to add smart button near 'Delivery' -->
+    <record id="view_order_form_inherit_customer_history" model="ir.ui.view">
+        <field name="name">sale.order.form.customer.history.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button name="%(action_customer_sales_history)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-history"
+                        context="{'default_partner_id': partner_id, 'search_default_partner_id': partner_id, 'domain': [('partner_id', '=', partner_id)]}">
+                    <field name="partner_id" invisible="1"/>
+                    <div class="o_stat_info">
+                        <span>Customer History</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
