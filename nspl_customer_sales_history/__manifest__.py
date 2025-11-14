@@ -1,6 +1,6 @@
 {
     'name': 'Customer Sales History',
-    'version': '18.0',
+    'version': '19.0.1',
     'summary': """View customer sales history from Contacts or Sale Orders""",
     'description': """
     This module adds a smart button on Contacts and Sale Orders to quickly view the complete sales history of that customer.
